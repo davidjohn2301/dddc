@@ -1,42 +1,46 @@
 import cn from "classnames";
 import styles from "./AboutUs.module.sass";
 import Image from "@/components/Image";
+import { useTranslation } from "react-i18next";
 
-const list = [
-    "Your data can be transformed, organized, and shared across applications for anyone to query with just a few keystrokes.",
-    "Your data can be transformed, organized, and shared across applications for anyone to query with just a few keystrokes.",
-];
 
 type AboutUsProps = {};
 
-const AboutUs = ({}: AboutUsProps) => (
+const AboutUs = ({}: AboutUsProps) => {
+    const {t} = useTranslation()
+    return (
     <div className={cn("section", styles.section)}>
         <div className={cn("container", styles.container)}>
             <div className={styles.row}>
                 <div className={styles.wrap}>
                     <div className={cn("h2", styles.title)}>
-                        Stay up to date on everything
+                        {t('technology.about.title')}
                     </div>
                     <div className={styles.info}>
-                        Stay current on the latest DDDC project developments,
-                        news, and content, updated daily.
+                    {t('technology.about.info')}
                     </div>
                     <div className={styles.list}>
-                        {list.map((item, index) => (
-                            <div className={styles.item} key={index}>
+                        
+                            <div className={styles.item} >
                                 <div className={cn("h3", styles.number)}>
-                                    0{index + 1}
+                                    1
                                 </div>
-                                <div className={styles.content}>{item}</div>
+                                <div className={styles.content}>{t('technology.about.item1')}</div>
                             </div>
-                        ))}
+                            <div className={styles.item} >
+                                <div className={cn("h3", styles.number)}>
+                                    2
+                                </div>
+                                <div className={styles.content}>{t('technology.about.item2')}</div>
+                            </div>
+                        
                     </div>
                     <div className={styles.line}>
                         <button className={cn("button", styles.button)}>
-                            <span>launch app</span>
+                            <span>{t('technology.about.launchApp')}</span>
                         </button>
                         <button className={styles.document}>
-                            Read the docs
+                        {t('technology.about.read')}
                         </button>
                     </div>
                 </div>
@@ -51,6 +55,6 @@ const AboutUs = ({}: AboutUsProps) => (
             </div>
         </div>
     </div>
-);
+)};
 
 export default AboutUs;

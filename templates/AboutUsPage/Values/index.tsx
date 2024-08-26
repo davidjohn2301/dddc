@@ -3,6 +3,7 @@ import styles from "./Values.module.sass";
 import Card from "@/components/Card";
 
 import { hexToRgbA } from "@/utils/index";
+import { useTranslation } from "react-i18next";
 
 const list = [
     {
@@ -24,33 +25,31 @@ const list = [
 
 type ValuesProps = {};
 
-const Values = ({}: ValuesProps) => (
+const Values = ({}: ValuesProps) => {
+    const {t} = useTranslation()
+    return (
     <div className={cn("section", styles.section)}>
         <div className={cn("container", styles.container)}>
             <div className={styles.row}>
                 <div className={styles.col}>
-                    <div className={cn("h3", styles.subtitle)}>Our values</div>
+                    <div className={cn("h3", styles.subtitle)}>{t('valueAbout.subtitle')}</div>
                     <div className={cn("h2", styles.title)}>
-                        Next-gen for&nbsp;top blockchain
+                    {t('valueAbout.title')}
                     </div>
                     <div className={styles.content}>
-                        DDDC believes in Web3 for all. DDDC is a decentralised
-                        blockchain scaling platform that enables developers to
-                        build scalable user-friendly dApps with low transaction
-                        fees without ever sacrificing on security.
+                    {t('valueAbout.content')}
                     </div>
                     <button className={cn("button", styles.button)}>
-                        <span>launch app</span>
+                        <span>{t('valueAbout.button')}</span>
                     </button>
                 </div>
                 <div className={styles.col}>
                     <div className={styles.list}>
-                        {list.map((item, index) => (
+                        
                             <Card
                                 className={styles.card}
                                 innerCardClass={styles.inner}
-                                key={index}
-                                color={item.color}
+                                color="#EB5BE5"
                                 animateIn="fadeInDown"
                                 small
                             >
@@ -58,24 +57,70 @@ const Values = ({}: ValuesProps) => (
                                     className={cn("status", styles.status)}
                                     style={{
                                         backgroundColor: hexToRgbA(
-                                            item.color,
+                                            "#EB5BE5",
                                             0.05
                                         ),
-                                        color: item.color,
+                                        color: "#EB5BE5",
                                     }}
                                 >
-                                    {item.status}
+                                    {t('valueAbout.status1')}
                                 </div>
                                 <div className={cn("h4", styles.info)}>
-                                    {item.title}
+                                {t('valueAbout.list1')}
                                 </div>
                             </Card>
-                        ))}
+                            <Card
+                                className={styles.card}
+                                innerCardClass={styles.inner}
+                                color="#6F5BEB"
+                                animateIn="fadeInDown"
+                                small
+                            >
+                                <div
+                                    className={cn("status", styles.status)}
+                                    style={{
+                                        backgroundColor: hexToRgbA(
+                                            "#6F5BEB",
+                                            0.05
+                                        ),
+                                        color: "#6F5BEB",
+                                    }}
+                                >
+                                    {t('valueAbout.status2')}
+                                </div>
+                                <div className={cn("h4", styles.info)}>
+                                {t('valueAbout.list2')}
+                                </div>
+                            </Card>
+                            <Card
+                                className={styles.card}
+                                innerCardClass={styles.inner}
+                                color="#89EB5B"
+                                animateIn="fadeInDown"
+                                small
+                            >
+                                <div
+                                    className={cn("status", styles.status)}
+                                    style={{
+                                        backgroundColor: hexToRgbA(
+                                            "#89EB5B",
+                                            0.05
+                                        ),
+                                        color: "#89EB5B",
+                                    }}
+                                >
+                                    {t('valueAbout.status3')}
+                                </div>
+                                <div className={cn("h4", styles.info)}>
+                                {t('valueAbout.list3')}
+                                </div>
+                            </Card>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-);
+)};
 
 export default Values;

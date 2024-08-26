@@ -5,6 +5,7 @@ import styles from "./Posts.module.sass";
 import Card from "@/components/Card";
 import Image from "@/components/Image";
 import Icon from "@/components/Icon";
+import { useTranslation } from "react-i18next";
 
 type PostsType = {
     title: string;
@@ -23,7 +24,10 @@ type PostsProps = {
     background?: boolean;
 };
 
-const Posts = ({ className, title, info, posts, background }: PostsProps) => (
+const Posts = ({ className, title, info, posts, background }: PostsProps) => {
+    const {t} = useTranslation()
+
+    return (
     <div
         className={cn(
             className,
@@ -38,27 +42,25 @@ const Posts = ({ className, title, info, posts, background }: PostsProps) => (
                     <div className={styles.info}>{info}</div>
                     <Link href="/blog">
                         <a className={cn("button", styles.button)}>
-                            <span>view all posts</span>
+                            <span>{t('post.viewall')}</span>
                         </a>
                     </Link>
                 </div>
                 <div className={styles.list}>
-                    {posts.map((item, index) => (
                         <Card
                             className={styles.card}
                             cornerCardClass={styles.corner}
                             backgroundCardClass={styles.backgroundCard}
                             squareCardClass={styles.square}
                             innerCardClass={styles.inner}
-                            color={item.color}
-                            key={index}
-                            url={item.url}
+                            color="#EB5BE5"
+                            url="/blog/article"
                             animateIn="fadeInDown"
                             small
                         >
                             <div className={styles.preview}>
                                 <Image
-                                    src={item.image}
+                                    src="/images/post-pic-1.jpg"
                                     layout="fill"
                                     objectFit="cover"
                                     alt="Post"
@@ -67,16 +69,16 @@ const Posts = ({ className, title, info, posts, background }: PostsProps) => (
                             <div className={styles.details}>
                                 <div
                                     className={cn("status", styles.status)}
-                                    style={{ color: item.color }}
+                                    style={{ color: "#EB5BE5" }}
                                 >
-                                    {item.status}
+                                    UPDATES
                                 </div>
                                 <div className={cn("h4", styles.subtitle)}>
-                                    {item.title}
+                                    {t('posts.title1')}
                                 </div>
                                 <div className={styles.line}>
                                     <div className={styles.date}>
-                                        {item.date}
+                                        {t('posts.date')}
                                     </div>
                                     <Icon
                                         className={styles.arrow}
@@ -86,7 +88,89 @@ const Posts = ({ className, title, info, posts, background }: PostsProps) => (
                                 </div>
                             </div>
                         </Card>
-                    ))}
+                        <Card
+                            className={styles.card}
+                            cornerCardClass={styles.corner}
+                            backgroundCardClass={styles.backgroundCard}
+                            squareCardClass={styles.square}
+                            innerCardClass={styles.inner}
+                            color="#89EB5B"
+                            url="/blog/article"
+                            animateIn="fadeInDown"
+                            small
+                        >
+                            <div className={styles.preview}>
+                                <Image
+                                    src="/images/post-pic-2.jpg"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    alt="Post"
+                                />
+                            </div>
+                            <div className={styles.details}>
+                                <div
+                                    className={cn("status", styles.status)}
+                                    style={{ color: "#89EB5B" }}
+                                >
+                                    UPDATES
+                                </div>
+                                <div className={cn("h4", styles.subtitle)}>
+                                    {t('posts.title2')}
+                                </div>
+                                <div className={styles.line}>
+                                    <div className={styles.date}>
+                                        {t('posts.date')}
+                                    </div>
+                                    <Icon
+                                        className={styles.arrow}
+                                        name="arrow-right"
+                                        size="26"
+                                    />
+                                </div>
+                            </div>
+                        </Card>
+                        <Card
+                            className={styles.card}
+                            cornerCardClass={styles.corner}
+                            backgroundCardClass={styles.backgroundCard}
+                            squareCardClass={styles.square}
+                            innerCardClass={styles.inner}
+                            color="#EBB15B"
+                            url="/blog/article"
+                            animateIn="fadeInDown"
+                            small
+                        >
+                            <div className={styles.preview}>
+                                <Image
+                                    src="/images/post-pic-3.jpg"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    alt="Post"
+                                />
+                            </div>
+                            <div className={styles.details}>
+                                <div
+                                    className={cn("status", styles.status)}
+                                    style={{ color: "#EBB15B" }}
+                                >
+                                    UPDATES
+                                </div>
+                                <div className={cn("h4", styles.subtitle)}>
+                                    {t('posts.title3')}
+                                </div>
+                                <div className={styles.line}>
+                                    <div className={styles.date}>
+                                        {t('posts.date')}
+                                    </div>
+                                    <Icon
+                                        className={styles.arrow}
+                                        name="arrow-right"
+                                        size="26"
+                                    />
+                                </div>
+                            </div>
+                        </Card>
+                   
                 </div>
             </div>
             <Parallax
@@ -104,6 +188,6 @@ const Posts = ({ className, title, info, posts, background }: PostsProps) => (
             </Parallax>
         </div>
     </div>
-);
+)};
 
 export default Posts;

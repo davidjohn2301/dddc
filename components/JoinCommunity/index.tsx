@@ -2,6 +2,7 @@ import { Parallax } from "react-scroll-parallax";
 import cn from "classnames";
 import styles from "./JoinCommunity.module.sass";
 import Image from "@/components/Image";
+import { useTranslation } from "react-i18next";
 
 const images = [
     "/images/figures/figure-1.png",
@@ -15,20 +16,22 @@ type JoinCommunityProps = {
     title: string;
 };
 
-const JoinCommunity = ({ title }: JoinCommunityProps) => (
+const JoinCommunity = ({title}: JoinCommunityProps) => {
+    const {t} = useTranslation()
+    return (
     <div className={styles.section}>
         <div className={cn("container", styles.container)}>
             <div className={styles.wrap}>
                 <div className={cn("h2", styles.title)}>{title}</div>
                 <div className={styles.info}>
-                    Or learn all about{" "}
+                    {t('joinCommunity.info1')}{" "}
                     <a
                         className={styles.social}
                         href="/"
                         target="_blank"
                         rel="noreferrer"
                     >
-                        how to build on DDDC
+                        {t('joinCommunity.info2')}
                     </a>
                     .
                 </div>
@@ -38,7 +41,7 @@ const JoinCommunity = ({ title }: JoinCommunityProps) => (
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span>JOIN THE COMMUNITY</span>
+                    <span>{t('joinCommunity.buttonJoin')}</span>
                 </a>
             </div>
         </div>
@@ -64,6 +67,6 @@ const JoinCommunity = ({ title }: JoinCommunityProps) => (
             ))}
         </div>
     </div>
-);
+)};
 
 export default JoinCommunity;

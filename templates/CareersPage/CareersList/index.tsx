@@ -4,59 +4,201 @@ import Icon from "@/components/Icon";
 import Image from "@/components/Image";
 
 import { careers } from "@/mocks/careers";
+import { useTranslation } from "react-i18next";
 
 type CareersListProps = {};
 
-const CareersList = ({}: CareersListProps) => (
+const CareersList = ({}: CareersListProps) => {
+  const { t } = useTranslation();
+  return (
     <div className={cn("section", styles.section)}>
-        <div className={cn("container", styles.container)}>
-            {careers.map((item, index) => (
-                <div className={styles.item} key={index}>
-                    <div className={styles.details}>
-                        <div className={styles.line}>
-                            {item.status.map((status, index) => (
-                                <div
-                                    className={cn(
-                                        {
-                                            "status-pink": status === "REMOTE",
-                                            "status-green":
-                                                status === "FULL-TIME",
-                                            "status-yellow":
-                                                status === "CONTRACT",
-                                        },
-                                        styles.status
-                                    )}
-                                    key={index}
-                                >
-                                    {status}
-                                </div>
-                            ))}
-                        </div>
-                        <div className={cn("h3", styles.title)}>
-                            {item.title}
-                        </div>
-                        <div className={styles.content}>{item.content}</div>
-                        <a
-                            className={styles.apply}
-                            href={item.url}
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Apply now <Icon name="arrow-right" size="26" />
-                        </a>
-                    </div>
-                    <div className={styles.preview}>
-                        <Image
-                            src={item.image}
-                            layout="fill"
-                            objectFit="cover"
-                            alt="Careers"
-                        />
-                    </div>
-                </div>
-            ))}
+      <div className={cn("container", styles.container)}>
+        <div className={styles.item}>
+          <div className={styles.details}>
+            <div className={styles.line}>
+              <div
+                className={cn({
+                  "status-pink": styles.status,
+                })}>
+                REMOTE
+              </div>
+              <div
+                className={cn({
+                  "status-green": styles.status,
+                })}>
+                FULL-TIME
+              </div>
+            </div>
+            <div className={cn("h3", styles.title)}>
+              {t("careers.item1.title")}
+            </div>
+            <div className={styles.content}>{t("careers.item1.content")}</div>
+            <a
+              className={styles.apply}
+              href="/"
+              target="_blank"
+              rel="noreferrer">
+              {t("careers.apply")} <Icon name="arrow-right" size="26" />
+            </a>
+          </div>
+          <div className={styles.preview}>
+            <Image
+              src="/images/blog/photo-1.png"
+              layout="fill"
+              objectFit="cover"
+              alt="Careers"
+            />
+          </div>
         </div>
+
+        <div className={styles.item}>
+          <div className={styles.details}>
+            <div className={styles.line}>
+              <div
+                className={cn({
+                  "status-green": styles.status,
+                })}>
+                FULL-TIME
+              </div>
+            </div>
+            <div className={cn("h3", styles.title)}>
+              {t("careers.item2.title")}
+            </div>
+            <div className={styles.content}>{t("careers.item2.content")}</div>
+            <a
+              className={styles.apply}
+              href="/"
+              target="_blank"
+              rel="noreferrer">
+              {t("careers.apply")} <Icon name="arrow-right" size="26" />
+            </a>
+          </div>
+          <div className={styles.preview}>
+            <Image
+              src="/images/blog/photo-2.png"
+              layout="fill"
+              objectFit="cover"
+              alt="Careers"
+            />
+          </div>
+        </div>
+
+        <div className={styles.item}>
+          <div className={styles.details}>
+            <div className={styles.line}>
+              <div
+                className={cn({
+                  "status-green": styles.status,
+                })}>
+                FULL-TIME
+              </div>
+              <div
+                className={cn({
+                  "status-pink": styles.status,
+                })}>
+                REMOTE
+              </div>
+            </div>
+            <div className={cn("h3", styles.title)}>
+              {t("careers.item3.title")}
+            </div>
+            <div className={styles.content}>{t("careers.item3.content")}</div>
+            <a
+              className={styles.apply}
+              href="/"
+              target="_blank"
+              rel="noreferrer">
+              {t("careers.apply")} <Icon name="arrow-right" size="26" />
+            </a>
+          </div>
+          <div className={styles.preview}>
+            <Image
+              src="/images/blog/photo-3.png"
+              layout="fill"
+              objectFit="cover"
+              alt="Careers"
+            />
+          </div>
+        </div>
+
+        <div className={styles.item}>
+          <div className={styles.details}>
+            <div className={styles.line}>
+              <div
+                className={cn({
+                  "status-green": styles.status,
+                })}>
+                FULL-TIME
+              </div>
+              <div
+                className={cn({
+                  "status-pink": styles.status,
+                })}>
+                REMOTE
+              </div>
+            </div>
+            <div className={cn("h3", styles.title)}>
+              {t("careers.item4.title")}
+            </div>
+            <div className={styles.content}>{t("careers.item4.content")}</div>
+            <a
+              className={styles.apply}
+              href="/"
+              target="_blank"
+              rel="noreferrer">
+              {t("careers.apply")} <Icon name="arrow-right" size="26" />
+            </a>
+          </div>
+          <div className={styles.preview}>
+            <Image
+              src="/images/blog/photo-4.png"
+              layout="fill"
+              objectFit="cover"
+              alt="Careers"
+            />
+          </div>
+        </div>
+        <div className={styles.item}>
+          <div className={styles.details}>
+            <div className={styles.line}>
+              <div
+                className={cn({
+                  "status-green": styles.status,
+                })}>
+                FULL-TIME
+              </div>
+              <div
+                className={cn({
+                  "status-pink": styles.status,
+                })}>
+                REMOTE
+              </div>
+            </div>
+            <div className={cn("h3", styles.title)}>
+              {t("careers.item5.title")}
+            </div>
+            <div className={styles.content}>{t("careers.item5.content")}</div>
+            <a
+              className={styles.apply}
+              href="/"
+              target="_blank"
+              rel="noreferrer">
+              {t("careers.apply")} <Icon name="arrow-right" size="26" />
+            </a>
+          </div>
+          <div className={styles.preview}>
+            <Image
+              src="/images/blog/photo-1.png"
+              layout="fill"
+              objectFit="cover"
+              alt="Careers"
+            />
+          </div>
+        </div>
+
+      </div>
     </div>
-);
+  );
+};
 
 export default CareersList;

@@ -2,10 +2,13 @@ import Link from "next/link";
 import cn from "classnames";
 import styles from "./Main.module.sass";
 import Image from "@/components/Image";
+import { useTranslation } from "react-i18next";
 
 type MainProps = {};
 
-const Main = ({}: MainProps) => (
+const Main = ({}: MainProps) => {
+    const {t} =useTranslation()
+    return (
     <div className={cn("section", styles.section)}>
         <div className={cn("container", styles.container)}>
             <div className={styles.preview}>
@@ -17,17 +20,16 @@ const Main = ({}: MainProps) => (
                 />
             </div>
             <div className={styles.wrap}>
-                <div className={styles.stage}>Feature post</div>
+                <div className={styles.stage}>{t('blog.main.stage')}</div>
                 <div className={cn("h1", styles.title)}>
-                    Everything DDDC weekly report
+                {t('blog.main.title')}
                 </div>
                 <div className={styles.content}>
-                    DDDC delivers tamper-proof inputs, outputs, and computations
-                    to support advanced smart contracts on any blockchain
+                {t('blog.main.content')}
                 </div>
                 <Link href="/blog/article">
                     <a className={cn("button", styles.button)}>
-                        <span>Read more</span>
+                        <span>{t('blog.main.button')}</span>
                     </a>
                 </Link>
             </div>
@@ -41,6 +43,6 @@ const Main = ({}: MainProps) => (
             />
         </div>
     </div>
-);
+)};
 
 export default Main;

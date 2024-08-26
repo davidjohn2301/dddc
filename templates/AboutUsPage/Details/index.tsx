@@ -3,55 +3,53 @@ import Link from "next/link";
 import cn from "classnames";
 import styles from "./Details.module.sass";
 import Image from "@/components/Image";
+import { useTranslation } from "react-i18next";
 
 type DetailsProps = {
-    scrollToRef: any;
+  scrollToRef: any;
 };
 
-const Details = ({ scrollToRef }: DetailsProps) => (
+const Details = ({ scrollToRef }: DetailsProps) => {
+  const { t } = useTranslation();
+  return (
     <div className={cn("section", styles.section)}>
-        <div className={cn("anchor", styles.anchor)} ref={scrollToRef}></div>
-        <div className={cn("container", styles.container)}>
-            <div className={styles.details}>
-                <div className={styles.counter}>1M</div>
-                <div className={cn("h4", styles.info)}>DDDC’s users</div>
-            </div>
-            <div className={styles.wrap}>
-                <div className={cn("content", styles.content)}>
-                    <h2>Scaling solutions, amplified.</h2>
-                    <h3>Built by developers, for developers.</h3>
-                    <p>
-                        DDDC is committed to fostering the growth of Web3
-                        applications by providing the infrastructure and
-                        security needed for Web3.
-                    </p>
-                    <p>
-                        DDDC believes in Web3 for all. DDDC is a decentralised
-                        blockchain scaling platform that enables developers to
-                        build scalable user-friendly dApps with low transaction
-                        fees without ever sacrificing on security.
-                    </p>
-                </div>
-                <Link href="/contact">
-                    <a className={cn("button", styles.button)}>
-                        <span>contact us</span>
-                    </a>
-                </Link>
-            </div>
-            <Parallax
-                className={styles.image}
-                speed={1}
-                easing="easeInQuad"
-                rotate={[2, -15]}
-            >
-                <Image
-                    src="/images/figures/figure-7.png"
-                    layout="fill"
-                    alt="Figure"
-                />
-            </Parallax>
+      <div className={cn("anchor", styles.anchor)} ref={scrollToRef}></div>
+      <div className={cn("container", styles.container)}>
+        <div className={styles.details}>
+          <div className={styles.counter}>1M</div>
+          <div className={cn("h4", styles.info)}>{t("mainDetails.info")}</div>
         </div>
+        <div className={styles.wrap}>
+          <div className={cn("content", styles.content)}>
+            <h2>{t("mainDetails.h2")}</h2>
+            <h3>{t("mainDetails.h3")}</h3>
+            <p>
+            {t("mainDetails.p1")}
+            </p>
+            <p>
+            {t("mainDetails.p2")}
+            </p>
+          </div>
+          <Link href="/contact">
+            <a className={cn("button", styles.button)}>
+              <span>{t("mainDetails.contact")}</span>
+            </a>
+          </Link>
+        </div>
+        <Parallax
+          className={styles.image}
+          speed={1}
+          easing="easeInQuad"
+          rotate={[2, -15]}>
+          <Image
+            src="/images/figures/figure-7.png"
+            layout="fill"
+            alt="Figure"
+          />
+        </Parallax>
+      </div>
     </div>
-);
+  );
+};
 
 export default Details;

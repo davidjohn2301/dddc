@@ -1,6 +1,11 @@
-export const headerNavigation = [
+import { useTranslation } from "react-i18next";
+
+
+export const headerNavigation = 
+
+[
     {
-        title: "Home",
+        title: 'Home',
         url: "/",
     },
     {
@@ -26,10 +31,11 @@ export const headerNavigation = [
     },
 ];
 
+
 export const footerNavigation = [
     {
         title: "Community",
-        url: "https://dddc.io/",
+        url: "/",
         external: true,
     },
     {

@@ -13,9 +13,11 @@ const Faq = ({}: FaqProps) => (
                 Your questions, answered
             </div>
             <div className={styles.list}>
-                {faqs.map((x: any, index: number) => (
-                    <Item className={styles.item} item={x} key={index} />
-                ))}
+                
+                    <Item className={styles.item} />
+                    <Item className={styles.item} />
+
+                
             </div>
         </div>
     </div>

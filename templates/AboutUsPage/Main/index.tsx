@@ -3,20 +3,22 @@ import cn from "classnames";
 import styles from "./Main.module.sass";
 import Scroll from "@/components/Scroll";
 import Image from "@/components/Image";
+import { useTranslation } from "react-i18next";
 
 type MainProps = {
     scrollToRef: any;
 };
 
-const Main = ({ scrollToRef }: MainProps) => (
+const Main = ({ scrollToRef }: MainProps) => {
+    const {t} = useTranslation()
+    return (
     <div className={cn("section", styles.section)}>
         <div className={cn("container", styles.container)}>
             <div className={styles.wrap}>
-                <div className={styles.stage}>about us</div>
-                <div className={cn("h1", styles.title)}>DDDC Fintech</div>
+                <div className={styles.stage}>{t('mainAbout.stage')}</div>
+                <div className={cn("h1", styles.title)}>{t('mainAbout.title')}</div>
                 <div className={styles.info}>
-                    DDDC delivers tamper-proof inputs, outputs, and computations
-                    to support advanced smart contracts on any blockchain
+                {t('mainAbout.info')}
                 </div>
                 <Scroll
                     className={styles.scroll}
@@ -48,6 +50,6 @@ const Main = ({ scrollToRef }: MainProps) => (
             </Parallax>
         </div>
     </div>
-);
+)};
 
 export default Main;

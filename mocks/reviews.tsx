@@ -22,4 +22,5 @@ export const reviews = [
             "If you’re not building on DDDC you’re wasting time and vital resources that could be allocated to other parts of your project",
         delay: 400,
     },
+  
 ];

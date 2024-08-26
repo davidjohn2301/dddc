@@ -6,12 +6,14 @@ import Form from "../Form";
 import Socials from "@/components/Socials";
 
 import { socials } from "@/constants/socials";
+import { useTranslation } from "react-i18next";
 
 type DetailsProps = {
     scrollToRef: any;
 };
 
 const Details = ({ scrollToRef }: DetailsProps) => {
+    const {t} = useTranslation()
     return (
         <div className={cn("section", styles.section)}>
             <div
@@ -25,7 +27,7 @@ const Details = ({ scrollToRef }: DetailsProps) => {
                     </div>
                     <div className={styles.col}>
                         <div className={styles.item}>
-                            <div className={styles.category}>Support</div>
+                            <div className={styles.category}>{t('contact.form.support')}</div>
                             <Link href="mailto:support@dddc.io">
                                 <a className={cn("h5", styles.content)}>
                                 support@dddc.io
@@ -34,27 +36,19 @@ const Details = ({ scrollToRef }: DetailsProps) => {
                         </div>
                         <div className={styles.line}>
                             <div className={styles.item}>
-                                <div className={styles.category}>Address 1</div>
+                                <div className={styles.category}>{t('contact.form.address')}</div>
                                 <div className={cn("h5", styles.content)}>
-                                    <p>4955 Serenity Unions</p>
-                                    <p>Oregon</p>
-                                    <p>Cambridgeshire</p>
-                                </div>
-                            </div>
-                            <div className={styles.item}>
-                                <div className={styles.category}>Address 2</div>
-                                <div className={cn("h5", styles.content)}>
-                                    <p>4955 Serenity Unions</p>
-                                    <p>Oregon</p>
-                                    <p>Dubai</p>
+                                    <p>The Office 5, Level 3</p>
+                                    <p>Office 303 One Central</p>
+                                    <p>Dubai, UAE</p>
                                 </div>
                             </div>
                         </div>
                         <div className={styles.item}>
-                            <div className={styles.category}>Phone number</div>
+                            <div className={styles.category}>{t('contact.form.phone')}</div>
                             <Link href="tel:+44987456321">
                                 <a className={cn("h5", styles.content)}>
-                                    +44 987 456 321
+                                +971 4 388 9925
                                 </a>
                             </Link>
                         </div>

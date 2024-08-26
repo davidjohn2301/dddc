@@ -3,6 +3,7 @@ import styles from "./Community.module.sass";
 import Socials from "@/components/Socials";
 
 import { socials } from "@/constants/socials";
+import { useTranslation } from "react-i18next";
 
 const community = [
     {
@@ -24,17 +25,19 @@ const community = [
 
 type CommunityProps = {};
 
-const Community = ({}: CommunityProps) => (
+const Community = ({}: CommunityProps) => {
+    const {t} = useTranslation()
+    return (
     <div className={cn("section", styles.section)}>
         <div className={cn("container-large", styles.container)}>
             <div className={styles.wrap}>
                 <div className={styles.row}>
                     <div className={styles.details}>
                         <div className={cn("h2", styles.title)}>
-                            DDDC community
+                            {t('technology.community.title')}
                         </div>
                         <div className={styles.info}>
-                            Stay current on the latest DDDC project.
+                        {t('technology.community.info')}
                         </div>
                     </div>
                     <Socials
@@ -47,17 +50,29 @@ const Community = ({}: CommunityProps) => (
                 </div>
             </div>
             <div className={styles.list}>
-                {community.map((item, index) => (
-                    <div className={styles.item} key={index}>
+                
+                    <div className={styles.item}>
                         <div className={cn("h2", styles.value)}>
-                            {item.value}
+                        $110M
                         </div>
-                        <div className={styles.content}>{item.content}</div>
+                        <div className={styles.content}>{t('technology.community.item1')}</div>
                     </div>
-                ))}
+                    <div className={styles.item}>
+                        <div className={cn("h2", styles.value)}>
+                        90M+
+                        </div>
+                        <div className={styles.content}>{t('technology.community.item2')}</div>
+                    </div>
+                    <div className={styles.item}>
+                        <div className={cn("h2", styles.value)}>
+                        220K+
+                        </div>
+                        <div className={styles.content}>{t('technology.community.item3')}</div>
+                    </div>
+               
             </div>
         </div>
     </div>
-);
+)};
 
 export default Community;

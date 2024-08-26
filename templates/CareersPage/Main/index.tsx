@@ -2,6 +2,7 @@ import { Parallax } from "react-scroll-parallax";
 import cn from "classnames";
 import styles from "./Main.module.sass";
 import Image from "@/components/Image";
+import { useTranslation } from "react-i18next";
 
 const images = [
     "/images/figures/figure-1.png",
@@ -11,15 +12,17 @@ const images = [
 
 type MainProps = {};
 
-const Main = ({}: MainProps) => (
+const Main = ({}: MainProps) => {
+    const {t} = useTranslation()
+
+    return(
     <div className={styles.section}>
         <div className={cn("container", styles.container)}>
             <div className={styles.wrap}>
-                <div className={styles.stage}>join DDDC</div>
-                <div className={cn("h1", styles.title)}>We are hiring</div>
+                <div className={styles.stage}>{t('careers.main.stage')}</div>
+                <div className={cn("h1", styles.title)}>{t('careers.main.title')}</div>
                 <div className={styles.info}>
-                    DDDC delivers tamper-proof inputs, outputs, and computations
-                    to support advanced smart contracts on any blockchain
+                {t('careers.main.info')}
                 </div>
             </div>
             <div className={styles.images}>
@@ -45,6 +48,6 @@ const Main = ({}: MainProps) => (
             </div>
         </div>
     </div>
-);
+)};
 
 export default Main;

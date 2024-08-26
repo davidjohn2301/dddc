@@ -11,9 +11,11 @@ import JoinCommunity from "@/components/JoinCommunity";
 
 import { posts } from "@/mocks/posts";
 import { reviews } from "@/mocks/reviews";
+import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
     const scrollToRef = useRef(null);
+    const {t} = useTranslation();
 
     return (
         <Layout>
@@ -24,12 +26,12 @@ const HomePage = () => {
             <Solutions />
             <Posts
                 className="section"
-                title="Your gateway to everything DDDC."
-                info="Stay current on the latest DDDC project developments, news, and content, updated daily."
+                title={t('post.title')}
+                info={t('post.info')}
                 posts={posts}
             />
             <Reviews reviews={reviews} />
-            <JoinCommunity title="Want to get involved?" />
+            <JoinCommunity title = {t('joinCommunity.title')} />
         </Layout>
     );
 };

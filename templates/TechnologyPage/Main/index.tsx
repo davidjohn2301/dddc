@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./Main.module.sass";
 import Image from "@/components/Image";
 import Scroll from "@/components/Scroll";
+import { useTranslation } from "react-i18next";
 
 const images = [
     "/images/figures/figure-11.png",
@@ -15,17 +16,18 @@ type MainProps = {
     scrollToRef: any;
 };
 
-const Main = ({ scrollToRef }: MainProps) => (
+const Main = ({ scrollToRef }: MainProps) => {
+    const {t} = useTranslation()
+    return (
     <div className={cn("section", styles.section)}>
         <div className={cn("container", styles.container)}>
             <div className={styles.wrap}>
-                <div className={styles.stage}>technology</div>
+                <div className={styles.stage}>{t('technology.main.stage')}</div>
                 <div className={cn("h1", styles.title)}>
-                    Built by developers, for developers.
+                {t('technology.main.title')}
                 </div>
                 <div className={styles.info}>
-                    DDDC delivers tamper-proof inputs, outputs, and computations
-                    to support advanced smart contracts on any blockchain
+                {t('technology.main.info')}
                 </div>
             </div>
             <div className={styles.images}>
@@ -51,7 +53,7 @@ const Main = ({ scrollToRef }: MainProps) => (
             </div>
             <Scroll
                 className={styles.scroll}
-                title="SCROLL TO EXPLORE"
+                title={t('technology.main.scroll')}
                 onScroll={() =>
                     scrollToRef.current.scrollIntoView({
                         behavior: "smooth",
@@ -60,6 +62,6 @@ const Main = ({ scrollToRef }: MainProps) => (
             />
         </div>
     </div>
-);
+)};
 
 export default Main;

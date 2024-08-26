@@ -15,14 +15,13 @@ const Details = ({ scrollToRef }: DetailsProps) => (
         <div className={cn("anchor", styles.anchor)} ref={scrollToRef}></div>
         <div className={cn("container", styles.container)}>
             <div className={styles.list}>
-                {details.map((x, index) => (
+                
                     <Item
                         className={styles.item}
                         itemWrapClass={styles.wrap}
-                        item={x}
-                        key={index}
+                        
                     />
-                ))}
+                
             </div>
         </div>
         <Parallax

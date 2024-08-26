@@ -9,10 +9,11 @@ import Reviews from "@/components/Reviews";
 import JoinCommunity from "@/components/JoinCommunity";
 
 import { reviews } from "@/mocks/reviews";
+import { useTranslation } from "react-i18next";
 
 const AboutUsPage = () => {
     const scrollToRef = useRef(null);
-
+    const {t} = useTranslation()
     return (
         <Layout>
             <Main scrollToRef={scrollToRef} />
@@ -21,7 +22,7 @@ const AboutUsPage = () => {
             <Team />
             <Values />
             <Reviews reviews={reviews} />
-            <JoinCommunity title="Download our whitepaper" />
+            <JoinCommunity title={t('joinCommunity.title2')} />
         </Layout>
     );
 };

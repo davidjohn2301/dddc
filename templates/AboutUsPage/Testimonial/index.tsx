@@ -4,28 +4,39 @@ import styles from "./Testimonial.module.sass";
 import Image from "@/components/Image";
 
 import { description, images } from "@/constants/testimonial";
+import { useTranslation } from "react-i18next";
 
 type TestimonialProps = {};
 
-const Testimonial = ({}: TestimonialProps) => (
+const Testimonial = ({}: TestimonialProps) => {
+const {t} =useTranslation()
+return (
     <div className={cn("section", styles.section)}>
         <div className={cn("container", styles.container)}>
             <div className={styles.list}>
-                {description.map((item, index) => (
-                    <div className={styles.item} key={index}>
+                    <div className={styles.item}>
                         <div className={cn("h3", styles.subtitle)}>
-                            {item.title}
+                            {t('testimonialAbout.title1')}
                         </div>
-                        <div className={styles.content}>{item.content}</div>
+                        <div className={styles.content}>{t('testimonialAbout.content1')}</div>
                     </div>
-                ))}
+                    <div className={styles.item}>
+                        <div className={cn("h3", styles.subtitle)}>
+                            {t('testimonialAbout.title2')}
+                        </div>
+                        <div className={styles.content}>{t('testimonialAbout.content2')}</div>
+                    </div>
+                    <div className={styles.item}>
+                        <div className={cn("h3", styles.subtitle)}>
+                            {t('testimonialAbout.title3')}
+                        </div>
+                        <div className={styles.content}>{t('testimonialAbout.content3')}</div>
+                    </div>
             </div>
             <div className={styles.comment}>
                 <div className={styles.details}>
                     <div className={cn("h2", styles.title)}>
-                        “DDDC accelerated our development process tenfold all
-                        while maintaining security and integrity from production
-                        to post launch”
+                        “{t('testimonialAbout.comment')}”
                     </div>
                     <div className={styles.avatar}>
                         <Image
@@ -63,6 +74,6 @@ const Testimonial = ({}: TestimonialProps) => (
             </div>
         </div>
     </div>
-);
+)};
 
 export default Testimonial;

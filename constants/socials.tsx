@@ -1,19 +1,15 @@
 export const socials = [
     {
         icon: "discord",
-        href: "https://dddc.io/",
+        href: "https://discord.gg/4AEUW8yg",
     },
     {
         icon: "twitter",
-        href: "https://dddc.io/",
-    },
-    {
-        icon: "instagram",
-        href: "https://dddc.io/",
+        href: "https://x.com/DDDC_project",
     },
     {
         icon: "telegram",
-        href: "https://dddc.io/",
+        href: "https://t.me/dddc_offical",
     },
     {
         icon: "facebook",

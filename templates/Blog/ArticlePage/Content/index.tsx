@@ -2,10 +2,13 @@ import cn from "classnames";
 import styles from "./Content.module.sass";
 import Image from "@/components/Image";
 import Card from "@/components/Card";
+import { useTranslation } from "react-i18next";
 
 type ContentProps = {};
 
-const Content = ({}: ContentProps) => (
+const Content = ({}: ContentProps) => {
+    const {t} = useTranslation()
+    return (
     <div className={cn("section", styles.section)}>
         <div className={cn("container", styles.container)}>
             <Card
@@ -15,7 +18,7 @@ const Content = ({}: ContentProps) => (
                 squareCardClass={styles.square}
             >
                 <div className={styles.caption}>
-                    Everything DDDC weekly report
+                    {t('articlePage.main.title')}
                 </div>
                 <div className={styles.video}>
                     <video
@@ -31,18 +34,13 @@ const Content = ({}: ContentProps) => (
             </Card>
             <div className={cn("content", styles.content)}>
                 <section>
-                    <h2>Scaling solutions, amplified.</h2>
-                    <h3>Built by developers, for developers.</h3>
+                    <h2>{t('articlePage.content.c1.h2')}</h2>
+                    <h3>{t('articlePage.content.c1.h3')}</h3>
                     <p>
-                        DDDC is committed to fostering the growth of Web3
-                        applications by providing the infrastructure and
-                        security needed for Web3.
+                    {t('articlePage.content.c1.p1')}
                     </p>
                     <p>
-                        DDDC believes in Web3 for all. DDDC is a decentralised
-                        blockchain scaling platform that enables developers to
-                        build scalable user-friendly dApps with low transaction
-                        fees without ever sacrificing on security.
+                    {t('articlePage.content.c1.p2')}
                     </p>
                     <figure>
                         <Image
@@ -54,20 +52,13 @@ const Content = ({}: ContentProps) => (
                     </figure>
                 </section>
                 <section>
-                    <h2>Everything DDDC weekly report</h2>
-                    <h3>Built by developers, for developers.</h3>
+                    <h2>{t('articlePage.content.c2.h2')}</h2>
+                    <h3>{t('articlePage.content.c2.h3')}</h3>
                     <p>
-                        DDDC is committed to fostering the growth of Web3
-                        applications by providing the infrastructure and
-                        security needed for Web3. “DDDC accelerated our
-                        development process tenfold all while maintaining
-                        security and integrity from production to post launch”
+                    {t('articlePage.content.c2.p1')}
                     </p>
                     <p>
-                        DDDC believes in Web3 for all. DDDC is a decentralised
-                        blockchain scaling platform that enables developers to
-                        build scalable user-friendly dApps with low transaction
-                        fees without ever sacrificing on security.
+                    {t('articlePage.content.c2.p2')}
                     </p>
                     <figure>
                         <Image
@@ -78,25 +69,10 @@ const Content = ({}: ContentProps) => (
                         />
                     </figure>
                     <ul>
-                        <li>Fully benefit from scalable network effects</li>
-                        <li>Inherently more secure than all competitors</li>
-                        <li>More open and powerful with 0.001% downtime</li>
+                        <li>{t('articlePage.content.c2.li1')}</li>
+                        <li>{t('articlePage.content.c2.li2')}</li>
+                        <li>{t('articlePage.content.c2.li3')}</li>
                     </ul>
-                </section>
-                <section>
-                    <h2>Scaling solutions, amplified.</h2>
-                    <h3>Built by developers, for developers.</h3>
-                    <p>
-                        DDDC is committed to fostering the growth of Web3
-                        applications by providing the infrastructure and
-                        security needed for Web3.
-                    </p>
-                    <p>
-                        DDDC believes in Web3 for all. DDDC is a decentralised
-                        blockchain scaling platform that enables developers to
-                        build scalable user-friendly dApps with low transaction
-                        fees without ever sacrificing on security.
-                    </p>
                     <figure>
                         <Image
                             src="/images/content-pic-3.jpg"
@@ -109,6 +85,6 @@ const Content = ({}: ContentProps) => (
             </div>
         </div>
     </div>
-);
+)};
 
 export default Content;
